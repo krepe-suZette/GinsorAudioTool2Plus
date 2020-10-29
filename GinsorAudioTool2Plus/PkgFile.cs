@@ -261,7 +261,7 @@ namespace GinsorAudioTool2Plus
 
       internal bool GetPkgFile0(PkgListEntry c)
       {
-        return c.PackageId == this.PackageId && (c.LangId == 0 || c.LangId == 1);
+        return c.PackageId == this.PackageId && (c.LangId == 0 || c.LangId == 13);
       }
 
       public uint PackageId;

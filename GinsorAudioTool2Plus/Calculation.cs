@@ -158,12 +158,12 @@ namespace GinsorAudioTool2Plus
 
       internal bool Hash2File0(PkgListEntry c)
       {
-        return c.PackageId == this.PackageId && (c.LangId == 0 || c.LangId == 1);
+        return c.PackageId == this.PackageId && (c.LangId == 0 || c.LangId == 13);
       }
 
       internal bool Hash2File1(PkgListEntry c)
       {
-        return c.PackageId == this.PackageId && (c.LangId == 0 || c.LangId == 1);
+        return c.PackageId == this.PackageId && (c.LangId == 0 || c.LangId == 13);
       }
 
       public uint PackageId;
@@ -178,12 +178,12 @@ namespace GinsorAudioTool2Plus
 
       internal bool Hash2File0(PkgListEntry c)
       {
-        return c.PackageId == this.PackageId && (c.LangId == 0 || c.LangId == 1);
+        return c.PackageId == this.PackageId && (c.LangId == 0 || c.LangId == 13);
       }
 
       internal bool Hash2File1(PkgListEntry c)
       {
-        return c.PackageId == this.PackageId && (c.LangId == 0 || c.LangId == 1);
+        return c.PackageId == this.PackageId && (c.LangId == 0 || c.LangId == 13);
       }
 
       public uint PackageId;
@@ -198,12 +198,12 @@ namespace GinsorAudioTool2Plus
 
       internal bool HashToFile0(PkgListEntry c)
       {
-        return c.PackageId == this.PackageId && (c.LangId == 0 || c.LangId == 1);
+        return c.PackageId == this.PackageId && (c.LangId == 0 || c.LangId == 13);
       }
 
       internal bool Hash2File1(PkgListEntry c)
       {
-        return c.PackageId == this.PackageId && (c.LangId == 0 || c.LangId == 1);
+        return c.PackageId == this.PackageId && (c.LangId == 0 || c.LangId == 13);
       }
 
       public uint PackageId;

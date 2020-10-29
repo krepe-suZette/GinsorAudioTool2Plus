@@ -252,6 +252,8 @@ namespace GinsorAudioTool2Plus
       this._d2TextParam.GerFileHash = Helpers.ReadUInt(memoryStream);
       memoryStream.Seek(0x2CL, SeekOrigin.Begin);
       this._d2TextParam.EspFileHash = Helpers.ReadUInt(memoryStream);
+      memoryStream.Seek(0x34L, SeekOrigin.Begin);
+      this._d2TextParam.KorFileHash = Helpers.ReadUInt(memoryStream);
       memoryStream.Seek(0x60L, SeekOrigin.Begin);
       this._d2TextParam.NumOfstringHashes = Helpers.ReadUInt(memoryStream);
       memoryStream.Seek(0x70L, SeekOrigin.Begin);
@@ -265,7 +267,8 @@ namespace GinsorAudioTool2Plus
 
     private void ReadRawTextfile()
     {
-      PkgFile pkgFile = Calculation.Hash2File(this._d2TextParam.EngFileHash);
+      //PkgFile pkgFile = Calculation.Hash2File(this._d2TextParam.EngFileHash);
+      PkgFile pkgFile = Calculation.Hash2File(this._d2TextParam.KorFileHash);
       byte[] buffer = new PkgExtract().ToBuffer(pkgFile);
       this._d2TextMs = new MemoryStream(buffer);
     }
@@ -334,8 +337,9 @@ namespace GinsorAudioTool2Plus
         foreach (EntryMeta entryMeta in list)
         {
           this._d2TextMs.Seek((long)((ulong)entryMeta.OffsetTs), SeekOrigin.Begin);
-          byte[] array = new byte[entryMeta.ReadLength];
-          this._d2TextMs.Read(array, 0, entryMeta.ReadLength);
+          // ReadLength * 2 for Korean (UTF-16LE)
+          byte[] array = new byte[entryMeta.ReadLength * 2];
+          this._d2TextMs.Read(array, 0, entryMeta.ReadLength * 2);
           if (entryMeta.Obfuscator == 0xE142)
           {
             text += "[Arc Kill]";
@@ -352,7 +356,9 @@ namespace GinsorAudioTool2Plus
           {
             try
             {
-              text += PkgText.D2TextEncoding(array, entryMeta.Obfuscator);
+              //text += PkgText.D2TextEncoding(array, entryMeta.Obfuscator);
+              // Only for UTF-16LE?
+              text += Encoding.Unicode.GetString(array);
             }
             catch (Exception)
             {
