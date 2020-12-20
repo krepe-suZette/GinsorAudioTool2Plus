@@ -10,6 +10,8 @@ namespace GinsorAudioTool2Plus
 
     public uint EspFileHash;
 
+    public uint KorFileHash;
+
     public uint NumOfstringHashes;
 
     public Dictionary<uint, uint> StringHashList;
