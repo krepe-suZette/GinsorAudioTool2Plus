@@ -138,6 +138,7 @@ namespace GinsorAudioTool2Plus
       };
       List<PkgListEntry> list = Form1.RecvPkgListEntries();
       int index = list.FindIndex(new Predicate<PkgListEntry>(getPkgFileHelper.GetPkgFile0));
+            if (index == -1) index = 0;
       PkgListEntry pkgListEntry = list[index];
       string text = Form1.RecD2PkgDir();
       this.Pkg = string.Concat(new string[]

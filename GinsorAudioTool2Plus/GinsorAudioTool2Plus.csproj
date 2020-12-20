@@ -167,7 +167,7 @@
     <None Include="Resources\CodeBook.dat" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\source\repos\GinsorAudioTool2Plus\Revorb\Revorb.vcxproj">
+    <ProjectReference Include="..\Revorb\Revorb.vcxproj">
       <Project>{33052463-ae24-408c-84f2-7ab5aaab78e3}</Project>
       <Name>Revorb</Name>
     </ProjectReference>
