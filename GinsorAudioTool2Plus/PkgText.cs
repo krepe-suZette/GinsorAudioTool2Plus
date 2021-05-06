@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace GinsorAudioTool2Plus
 {
@@ -322,6 +323,11 @@ namespace GinsorAudioTool2Plus
       }
     }
 
+    private bool ValidString(string s)
+    {
+      return Regex.IsMatch(s, @"^[^\p{Cc}\p{Cf}\p{Zl}\p{Zp}]*$");
+    }
+
     private void GetStringLists()
     {
       uint num = 0U;
@@ -334,6 +340,7 @@ namespace GinsorAudioTool2Plus
                     Helpers.FileExistsDelete("extracted/atextcount.log");
                 }
                 string text = "";
+                string utfText = "";
                 foreach (EntryMeta entryMeta in list)
                 {
                     this._d2TextMs.Seek((long)((ulong)entryMeta.OffsetTs), SeekOrigin.Begin);
@@ -356,8 +363,18 @@ namespace GinsorAudioTool2Plus
                         try
                         {
                             //text += PkgText.D2TextEncoding(array, entryMeta.Obfuscator);
-                            text += Encoding.Unicode.GetString(array);
-                        }
+                            utfText = Encoding.Unicode.GetString(array);
+                            //text += utfText;
+              if (ValidString(utfText))
+              {
+                text += utfText;
+              }
+              else
+              {
+                text += BitConverter.ToString(array).Replace("-", "");
+              }
+
+                         }
                         catch (Exception)
                         {
                             text += "GinsorTool.Error";
