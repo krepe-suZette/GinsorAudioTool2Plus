@@ -2,16 +2,8 @@
 {
 	public partial class Form1 : global::System.Windows.Forms.Form
 	{
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && this.components != null)
-			{
-				this.components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
 
-		private void InitializeComponent()
+    private void InitializeComponent()
 		{
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
       this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -193,7 +185,7 @@
       this.statusLabel.Name = "statusLabel";
       this.statusLabel.Size = new System.Drawing.Size(995, 20);
       this.statusLabel.TabIndex = 25;
-      this.statusLabel.Text = "v2.0.1.0 | Invented by Ginsor, Improved by pinky | 2020";
+      this.statusLabel.Text = "v2.0.2.0 | Invented by Ginsor, Improved by pinky | 2021";
       this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
       // panel7
@@ -331,7 +323,6 @@
 
 		}
 
-		private global::System.ComponentModel.IContainer components;
 
 		private global::System.Windows.Forms.SplitContainer splitContainer1;
 
